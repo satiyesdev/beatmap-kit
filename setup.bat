@@ -15,10 +15,17 @@ echo == beatmap-kit setup ==
 echo    kit: %KIT%
 
 rem ---- pick a Python 3.10-3.13 interpreter --------------------
+rem BEATMAP_PYTHON overrides detection (portable / non-PATH installs):
+rem     set BEATMAP_PYTHON=C:\path\to\python.exe
 set "PY="
-for %%V in (3.12 3.13 3.11 3.10) do (
-    if not defined PY (
-        py -%%V -c "import sys" >nul 2>nul && set "PY=py -%%V"
+if defined BEATMAP_PYTHON (
+    "%BEATMAP_PYTHON%" -c "import sys; assert (3,10)<=sys.version_info<(3,14)" >nul 2>nul && set PY="%BEATMAP_PYTHON%"
+)
+if not defined PY (
+    for %%V in (3.12 3.13 3.11 3.10) do (
+        if not defined PY (
+            py -%%V -c "import sys" >nul 2>nul && set "PY=py -%%V"
+        )
     )
 )
 if not defined PY (
@@ -27,7 +34,8 @@ if not defined PY (
 if not defined PY (
     echo.
     echo [ERROR] Python 3.10-3.13 not found. Install Python 3.12 from python.org
-    echo         and make sure the "py" launcher is on PATH.
+    echo         and make sure the "py" launcher is on PATH, or set BEATMAP_PYTHON
+    echo         to the full path of python.exe.
     goto :fail
 )
 echo    python: %PY%
