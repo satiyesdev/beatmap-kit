@@ -39,7 +39,7 @@ segment, `abs` is relative to the start of the song.
 - Windows 10/11 (the batch files are Windows-only)
 - Python **3.10 – 3.13** (tested on 3.12.13). If Python is not on `PATH`, run
   `set BEATMAP_PYTHON=C:\path\to\python.exe` before `setup.bat`.
-- ~8 GB of disk: two virtualenvs + ~2.7 GB of models
+- ~10 GB of disk: two virtualenvs (~7 GB) + ~2.7 GB of models
 - NVIDIA GPU is optional. `setup.bat` installs the CUDA 12.8 build of torch;
   `setup.bat --cpu` installs the CPU build and everything still works (slower).
 - `ffmpeg` on PATH **only** if you feed `.m4a` / `.aac` files
