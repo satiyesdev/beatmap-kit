@@ -1,0 +1,16 @@
+# beatmap-kit - main environment (mix analysis + Demucs)
+#
+# torch / torchaudio are installed by setup.bat because the Windows GPU build
+# lives on the PyTorch index, not on PyPI:
+#   GPU: torch==2.8.0+cu128 torchaudio==2.8.0+cu128  --index-url https://download.pytorch.org/whl/cu128
+#   CPU: torch==2.8.0      torchaudio==2.8.0         --index-url https://download.pytorch.org/whl/cpu
+#
+# Versions below are the ones this kit was built and tested with.
+
+numpy==2.5.4
+scipy==1.18.1
+librosa==1.0.0
+soundfile==0.14.0
+scikit-learn==1.9.1
+demucs==4.1.0
+huggingface_hub==2.3.0

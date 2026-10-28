@@ -1,0 +1,39 @@
+# --- Python ---
+__pycache__/
+*.py[cod]
+*.egg-info/
+
+# --- local environments / bundled runtimes ---
+python/
+python_medium/
+venv/
+venv_asr/
+.venv/
+
+# --- models & caches (downloaded on first run) ---
+models/
+cache/
+tmp/
+
+# --- per-run output: logs, stems, json ---
+runs/
+logs/
+lyrics/
+
+# --- audio never goes into the repo ---
+*.mp3
+*.wav
+*.flac
+*.m4a
+*.aac
+*.ogg
+
+# --- editor / OS ---
+.vscode/
+.idea/
+.DS_Store
+Thumbs.db
+desktop.ini
+
+# --- local-only notes kept out of the public repo ---
+README.legacy.md
